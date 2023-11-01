@@ -1,14 +1,13 @@
 package com.bnta.task_01.Models;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-
 public class Greeting {
-    private String name;
 
-    public Greeting (String name){
+    private String name;
+    private String timeOfDay;
+
+    public Greeting (String name, String timeOfDay){
         this.name = name;
+        this.timeOfDay = timeOfDay;
     }
 
     public Greeting(){
@@ -22,11 +21,11 @@ public class Greeting {
         this.name = name;
     }
 
-//    public String getTimeOfDay() {
-//        return timeOfDay;
-//    }
-//
-//    public void setTimeOfDay(String timeOfDay) {
-//        this.timeOfDay = timeOfDay;
-//    }
+    public String getTimeOfDay() {
+        return timeOfDay;
+    }
+
+    public void setTimeOfDay(String timeOfDay) {
+        this.timeOfDay = timeOfDay;
+    }
 }

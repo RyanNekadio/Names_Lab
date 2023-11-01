@@ -11,17 +11,31 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @RestController
+@RequestMapping(value = "/greeting")
 public class GreetingController {
 
-    @GetMapping(value = "/greeting")
-    public String newGreeting(@RequestParam String timeOfDay){
-        Greeting greeting = new Greeting("Ryan");
-        return timeOfDay + " " +  greeting.getName() + "!";
+//    Step 1: return a string
+//    @GetMapping
+//    public String greeting(){
+//        return "Good evening Ryan!";
+//    }
+
+////    Step 2: return a POJO
+//    @GetMapping
+//    public Greeting greeting(String name, String timeOfDay){
+//        return new Greeting("Ryan", "Good evening");
+//    }
+
+//    Extension
+//    Step 1: Add @RequestParam to timeOfDay
+    @GetMapping
+    public Greeting greeting(String name, @RequestParam String timeOfDay){
+        return new Greeting("Ryan", timeOfDay);
     }
 
-    @GetMapping(value = "/greeting/christmas")
-    public String newCelebration(){
-        Celebration christmas = new Celebration("Merry Christmas!");
-        return christmas.getMessage();
+//    Step 2: Add Celebration DTO
+    @GetMapping(value = "/christmas")
+    public Celebration seasonalGreeting(String message){
+        return new Celebration("Merry christmas!");
     }
 }
